@@ -2,7 +2,7 @@
 " Filename: plugin/insert_mode_motion.vim
 " Author: itchyny
 " License: MIT License
-" Last Change: 2013/11/07 17:40:11.
+" Last Change: 2014/11/28 18:24:50.
 " =============================================================================
 
 if exists('g:loaded_insert_mode_motion') && g:loaded_insert_mode_motion
@@ -21,15 +21,6 @@ inoremap <expr> <Plug>(insert_mode_motion-home) insert_mode_motion#cancel_popup_
 inoremap <expr> <Plug>(insert_mode_motion-del) insert_mode_motion#cancel_popup_key("\<Del>")
 inoremap <expr> <Plug>(insert_mode_motion-bs) insert_mode_motion#cancel_popup_key("\<BS>")
 inoremap <expr> <Plug>(insert_mode_motion-delhome) insert_mode_motion#cancel_popup_key("\<C-u>")
-nnoremap <expr> <Plug>(insert_mode_motion-normal-up) insert_mode_motion#goback_insert("\<Up>")
-nnoremap <expr> <Plug>(insert_mode_motion-normal-down) insert_mode_motion#goback_insert("\<Down>")
-nnoremap <expr> <Plug>(insert_mode_motion-normal-right) insert_mode_motion#goback_insert("\<Right>")
-nnoremap <expr> <Plug>(insert_mode_motion-normal-left) insert_mode_motion#goback_insert("\<Left>")
-nnoremap <expr> <Plug>(insert_mode_motion-normal-end) insert_mode_motion#goback_insert("\<End>")
-nnoremap <expr> <Plug>(insert_mode_motion-normal-home) insert_mode_motion#goback_insert("\<Home>")
-nnoremap <expr> <Plug>(insert_mode_motion-normal-del) insert_mode_motion#goback_insert("\<Del>")
-nnoremap <expr> <Plug>(insert_mode_motion-normal-pageup) insert_mode_motion#goback_insert("\<PageUp>")
-nnoremap <expr> <Plug>(insert_mode_motion-normal-pagedown) insert_mode_motion#goback_insert("\<PageDown>")
 
 if get(g:, 'insert_mode_motion_default_mapping', 1)
   imap <C-p> <Plug>(insert_mode_motion-up)
@@ -45,17 +36,6 @@ if get(g:, 'insert_mode_motion_default_mapping', 1)
   imap <Down> <Plug>(insert_mode_motion-down)
   imap <Left> <Plug>(insert_mode_motion-left)
   imap <Right> <Plug>(insert_mode_motion-right)
-  if get(g:, 'insert_mode_motion_normal_mapping', 1)
-    nmap OA <Plug>(insert_mode_motion-normal-up)
-    nmap OB <Plug>(insert_mode_motion-normal-down)
-    nmap OC <Plug>(insert_mode_motion-normal-right)
-    nmap OD <Plug>(insert_mode_motion-normal-left)
-    nmap OF <Plug>(insert_mode_motion-normal-end)
-    nmap OH <Plug>(insert_mode_motion-normal-home)
-    nmap [3~ <Plug>(insert_mode_motion-normal-del)
-    nmap [5~ <Plug>(insert_mode_motion-normal-pageup)
-    nmap [6~ <Plug>(insert_mode_motion-normal-pagedown)
-  endif
 endif
 
 let g:loaded_insert_mode_motion = 1

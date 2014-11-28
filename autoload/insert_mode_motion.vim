@@ -2,7 +2,7 @@
 " Filename: autoload/insert_mode_motion.vim
 " Author: itchyny
 " License: MIT License
-" Last Change: 2013/11/07 17:39:22.
+" Last Change: 2014/11/28 18:25:15.
 " =============================================================================
 
 let s:save_cpo = &cpo
@@ -32,10 +32,6 @@ endif
 
 function! insert_mode_motion#cancel_popup_key(key)
   return s:cancel_popup() . a:key
-endfunction
-
-function! insert_mode_motion#goback_insert(key)
-  return "gi" . s:cancel_popup() . a:key . s:cancel_popup()
 endfunction
 
 let &cpo = s:save_cpo
