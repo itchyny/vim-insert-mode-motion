@@ -2,7 +2,7 @@
 " Filename: plugin/insert_mode_motion.vim
 " Author: itchyny
 " License: MIT License
-" Last Change: 2013/11/27 14:09:06.
+" Last Change: 2013/11/07 17:40:11.
 " =============================================================================
 
 if exists('g:loaded_insert_mode_motion') && g:loaded_insert_mode_motion
@@ -45,7 +45,7 @@ if get(g:, 'insert_mode_motion_default_mapping', 1)
   imap <Down> <Plug>(insert_mode_motion-down)
   imap <Left> <Plug>(insert_mode_motion-left)
   imap <Right> <Plug>(insert_mode_motion-right)
-  if get(g:, 'insert_mode_motion_normal_mapping', 0)
+  if get(g:, 'insert_mode_motion_normal_mapping', 1)
     nmap OA <Plug>(insert_mode_motion-normal-up)
     nmap OB <Plug>(insert_mode_motion-normal-down)
     nmap OC <Plug>(insert_mode_motion-normal-right)
@@ -55,16 +55,6 @@ if get(g:, 'insert_mode_motion_default_mapping', 1)
     nmap [3~ <Plug>(insert_mode_motion-normal-del)
     nmap [5~ <Plug>(insert_mode_motion-normal-pageup)
     nmap [6~ <Plug>(insert_mode_motion-normal-pagedown)
-  else
-    nmap OA <Nop>
-    nmap OB <Nop>
-    nmap OC <Nop>
-    nmap OD <Nop>
-    nmap OF <Nop>
-    nmap OH <Nop>
-    nmap [3~ <Nop>
-    nmap [5~ <Nop>
-    nmap [6~ <Nop>
   endif
 endif
 
