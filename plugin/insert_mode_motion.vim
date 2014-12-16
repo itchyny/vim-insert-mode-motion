@@ -2,12 +2,13 @@
 " Filename: plugin/insert_mode_motion.vim
 " Author: itchyny
 " License: MIT License
-" Last Change: 2014/12/05 23:55:23.
+" Last Change: 2014/12/14 00:50:06.
 " =============================================================================
 
-if exists('g:loaded_insert_mode_motion') && g:loaded_insert_mode_motion
+if exists('g:loaded_insert_mode_motion') || v:version < 700
   finish
 endif
+let g:loaded_insert_mode_motion = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
@@ -37,8 +38,6 @@ if get(g:, 'insert_mode_motion_default_mapping', 1)
   imap <Left> <Plug>(insert-mode-motion-left)
   imap <Right> <Plug>(insert-mode-motion-right)
 endif
-
-let g:loaded_insert_mode_motion = 1
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
