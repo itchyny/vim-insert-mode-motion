@@ -2,7 +2,7 @@
 " Filename: plugin/insert_mode_motion.vim
 " Author: itchyny
 " License: MIT License
-" Last Change: 2015/02/25 23:46:38.
+" Last Change: 2018/12/09 17:46:19.
 " =============================================================================
 
 if exists('g:loaded_insert_mode_motion') || v:version < 700
@@ -40,11 +40,7 @@ if get(g:, 'insert_mode_motion_default_mapping', 1)
 endif
 
 function! s:sourced(plugin) abort
-  if exists('*neobundle#is_sourced')
-    return neobundle#is_sourced(a:plugin)
-  else
-    return !!len(globpath(&rtp, 'plugin/' . a:plugin . '**'))
-  endif
+  return globpath(&rtp, 'plugin/' . a:plugin . '**') !=# ''
 endfunction
 
 if s:sourced('neocomplete.vim')
