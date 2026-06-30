@@ -2,7 +2,7 @@
 " Filename: plugin/insert_mode_motion.vim
 " Author: itchyny
 " License: MIT License
-" Last Change: 2018/12/09 17:46:19.
+" Last Change: 2026/06/30 16:11:23.
 " =============================================================================
 
 if exists('g:loaded_insert_mode_motion') || v:version < 700
@@ -24,8 +24,8 @@ inoremap <expr> <Plug>(insert-mode-motion-bs) <SID>key("\<BS>")
 inoremap <expr> <Plug>(insert-mode-motion-delhome) <SID>key("\<C-u>")
 
 if get(g:, 'insert_mode_motion_default_mapping', 1)
-  imap <C-p> <Plug>(insert-mode-motion-up)
-  imap <C-n> <Plug>(insert-mode-motion-down)
+  imap <expr> <C-p> pumvisible() ? "\<C-p>" : "\<Plug>(insert-mode-motion-up)"
+  imap <expr> <C-n> pumvisible() ? "\<C-n>" : "\<Plug>(insert-mode-motion-down)"
   imap <C-b> <Plug>(insert-mode-motion-left)
   imap <C-f> <Plug>(insert-mode-motion-right)
   imap <C-e> <Plug>(insert-mode-motion-end)
@@ -33,8 +33,8 @@ if get(g:, 'insert_mode_motion_default_mapping', 1)
   imap <C-d> <Plug>(insert-mode-motion-del)
   imap <C-h> <Plug>(insert-mode-motion-bs)
   imap <C-u> <C-g>u<Plug>(insert-mode-motion-delhome)
-  imap <Up> <Plug>(insert-mode-motion-up)
-  imap <Down> <Plug>(insert-mode-motion-down)
+  imap <expr> <Up> pumvisible() ? "\<Up>" : "\<Plug>(insert-mode-motion-up)"
+  imap <expr> <Down> pumvisible() ? "\<Down>" : "\<Plug>(insert-mode-motion-down)"
   imap <Left> <Plug>(insert-mode-motion-left)
   imap <Right> <Plug>(insert-mode-motion-right)
 endif
